@@ -1,5 +1,9 @@
+.md-toolbar-tools{
+	background: rgb(207, 0, 58);
+}
+
 .md-toolbar-tools h1 {
-  font-size: inherit;
-  font-weight: inherit;
-  margin: inherit;
+	font-size: inherit;
+  	font-weight: inherit;
+  	margin: inherit;
 }
