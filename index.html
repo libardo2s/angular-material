@@ -11,6 +11,7 @@
     <script src="js/angular/angular-animate.min.js"></script>
     <script src="js/angular/angular-aria.min.js"></script>
     <script src="js/angular/angular-material.min.js"></script>
+    <script src="js/angular/angular-material-icons.min.js"></script>
 
     <script src="js/app.js"></script>
     <meta name="viewport" content="initial-scale=1" />
@@ -28,7 +29,10 @@
         <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
           <img src="img/header.png" height="200">
           <md-list>
-            <md-list-item ng-click="navigateTo('data usage', $event)"> Item content in list</md-list-item>
+            <md-list-item ng-click="openToast()">
+              <md-icon md-svg-icon="img/user.svg"></md-icon>
+              <p>Data Usage</p>
+            </md-list-item>
             <md-list-item  ng-click="navigateTo('data usage', $event)"> Item content in list</md-list-item>
             <md-list-item  ng-click="navigateTo('data usage', $event)"> Item content in list</md-list-item>
             <md-list-item  ng-click="navigateTo('data usage', $event)"> Item content in list</md-list-item>
