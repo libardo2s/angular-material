@@ -41,28 +41,30 @@
         </md-sidenav>
         <div layout="column" flex id="content">
             <md-content layout="column" flex class="md-padding">
-                <div>
-    <h1 class="md-title">Enter an address</h1>
-    <div layout="row">
-        <md-input-container>
-            <label>Street Name</label>
-            <input type="text">
-        </md-input-container>
-        <md-input-container>
-            <label>City</label>
-            <input type="text">
-        </md-input-container>
-        <md-input-container>
-            <label>State</label>
-            <md-select ng-model="ctrl.userState">
-                <md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
-            </md-select>
-        </md-input-container>
-    </div>
-  </div>
+                <md-input-container class="md-icon-float">
+                    <!-- Use floating label instead of placeholder -->
+                    <label>Name</label>
+                    <md-icon md-svg-src="img/user.svg" class="name"></md-icon>
+                    <input ng-model="user.name" type="text">
+                </md-input-container>
+
+                <md-input-container md-no-float="">
+                    <md-icon md-svg-src="img/user.svg"></md-icon>
+                    <input ng-model="user.phone" type="text" placeholder="Phone Number">
+                </md-input-container>
+
+                <md-input-container>
+                    <!-- Use floating placeholder instead of label -->
+                    <md-icon md-svg-src="img/user.svg" class="email"></md-icon>
+                    <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
+                </md-input-container>
+
+                <md-input-container md-no-float="">
+                    <md-icon md-svg-src="img/user.svg" style="display:inline-block;"></md-icon>
+                    <input ng-model="user.address" type="text" placeholder="Address">
+                </md-input-container>
             </md-content>
         </div>
     </div>
-
   </body>
 </html>
