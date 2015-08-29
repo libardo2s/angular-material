@@ -14,6 +14,9 @@
     <script src="js/angular/angular-material-icons.min.js"></script>
 
     <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+      
     <meta name="viewport" content="initial-scale=1" />
   </head>
   <body layout="column" ng-controller="AppCtrl">
@@ -40,30 +43,29 @@
           </md-list>
         </md-sidenav>
         <div layout="column" flex id="content">
-            <md-content layout="column" flex class="md-padding">
-                <md-input-container class="md-icon-float">
-                    <!-- Use floating label instead of placeholder -->
-                    <label>Name</label>
-                    <md-icon md-svg-src="img/user.svg" class="name"></md-icon>
-                    <input ng-model="user.name" type="text">
-                </md-input-container>
-
-                <md-input-container md-no-float="">
-                    <md-icon md-svg-src="img/user.svg"></md-icon>
-                    <input ng-model="user.phone" type="text" placeholder="Phone Number">
-                </md-input-container>
-
+            <md-content md-theme="docs-dark" layout-padding="" layout="row" layout-sm="column" ng-model="mail" class="buttondemoBasicUsage">
                 <md-input-container>
-                    <!-- Use floating placeholder instead of label -->
-                    <md-icon md-svg-src="img/user.svg" class="email"></md-icon>
-                    <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
+                    <label>Nombre</label>
+                    <input ng-model="mail.nombre">
+                </md-input-container>
+                <md-input-container>
+                    <label>Asunto</label>
+                    <input ng-model="mail.asunto">
+                </md-input-container>
+                <md-input-container>
+                    <label>Correo Electrónico</label>
+                    <input ng-model="mail.correo" type="email">
+                </md-input-container>
+                <md-input-container flex="">
+                    <label>Mensaje</label>
+                    <textarea ng-model="mail.mensaje" columns="1" md-maxlength="150"></textarea>
+                </md-input-container>
+                <md-input-container flex="">
+                    <md-button md-no-ink="" class="md-raised md-primary" ng-click="enviarMail()">Enviar Correo</md-button>
                 </md-input-container>
 
-                <md-input-container md-no-float="">
-                    <md-icon md-svg-src="img/user.svg" style="display:inline-block;"></md-icon>
-                    <input ng-model="user.address" type="text" placeholder="Address">
-                </md-input-container>
-            </md-content>
+                </md-content>
+            <p>{{mail}}</p>
         </div>
     </div>
   </body>
