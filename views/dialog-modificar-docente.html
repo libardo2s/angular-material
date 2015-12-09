@@ -1,0 +1,60 @@
+<md-dialog ng-controller="DialogDocenteController" flex-sm="100" flex-gt-sm="50" flex-gt-md="50" flex-gt-lg="50">
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+        <div class="md-toolbar-tools">
+            <h1>Reinar Admin - Actualizar Docente</h1>
+        </div>
+    </md-toolbar>
+    <md-content class="md-padding"> 
+        <form name="docenteForm">  
+            <md-input-container flex>
+                <md-select ng-model="profesor.tipo_documento" placeholder="Tipo de documento">
+                    <md-option value="Registro Civil">Registro Civil</md-option>
+                    <md-option value="Tarjeta de identidad">Tarjeta de identidad</md-option>
+                    <md-option value="Cedula de ciudadania">Cedula de ciudadania</md-option>
+                    <md-option value="Cedula Extranjera">Cedula Extranjera</md-option>
+                </md-select>    
+            </md-input-container>
+            <md-input-container flex> 
+                <label>Número de Documento</label> 
+                <input type="number" ng-model="profesor.documento" required> 
+            </md-input-container>  
+            <md-input-container flex> 
+                <label>Primer Nombre</label> 
+                <input ng-model="profesor.primer_nombre" required> 
+            </md-input-container> 
+            <md-input-container flex> 
+                <label>Segundo Nombre</label> 
+                <input ng-model="profesor.segundo_nombre"> 
+            </md-input-container> 
+            <md-input-container flex> 
+                <label>Primer Apellido</label> 
+                <input ng-model="profesor.primer_apellido" required> 
+            </md-input-container> 
+            <md-input-container flex> 
+                <label>Segundo Apellido</label> 
+                <input ng-model="profesor.segundo_apellido"> 
+            </md-input-container> 
+            <md-input-container flex> 
+                <label>Sexo</label> 
+                <input ng-model="profesor.sexo"> 
+            </md-input-container> 
+            <md-input-container flex> 
+                <label>Fecha de Nacimiento</label> 
+                <input ng-model="profesor.fecha_nacimiento"> 
+            </md-input-container> 
+            <md-input-container flex> 
+                <label>Correo</label> 
+                <input ng-model="profesor.correo"> 
+            </md-input-container> 
+            <md-input-container flex> 
+                <md-select ng-model="estudiante.salon" placeholder="Grado">
+                    <md-option ng-repeat="grado in listaCursos" value="{{grado.id}}">{{grado.salon}}</md-option>
+                </md-select>
+            </md-input-container>
+        </form> 
+    </md-content> 
+    <div class="md-actions" layout="row"> 
+        <span flex></span> 
+        <md-button ng-click="update()" class="md-primary"> Actualizar </md-button> 
+    </div>
+</md-dialog>

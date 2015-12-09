@@ -1,0 +1,23 @@
+<div flex layout="row" layout-align="center center" class="cuerpo">
+    <div flex-sm="100" flex-gt-sm="50" flex-gt-md="50" flex-gt-lg="50" class="md-whiteframe-z2"> 
+        <img ng-src="img/icono.png" class="imagen-form">
+        <md-content class="md-padding">
+            <div flex-sm="100" flex-gt-sm="50" layout-sm="column">
+                <form name="loginForm">
+                    <md-input-container>
+                        <label>Usuario:</label>
+                        <input ng-model="User.username" required>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Contraseña:</label>
+                        <input type="password" ng-model="User.password" required>
+                    </md-input-container>
+                </form>
+            </div>
+        </md-content>
+        <div class="md-actions" layout="row"> 
+            <span flex></span> 
+            <md-button md-no-ink="" class="md-raised md-primary" ng-click="Login()">Ingresar</md-button>
+        </div>
+    </div>
+</div>

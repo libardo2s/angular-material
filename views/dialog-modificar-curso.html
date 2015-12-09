@@ -1,0 +1,33 @@
+<md-dialog flex-sm="100" flex-gt-sm="50" flex-gt-md="50" flex-gt-lg="50">
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+        <div class="md-toolbar-tools">
+            <h1>Reinar Admin - Agregar Curso</h1>
+        </div>
+    </md-toolbar>
+    <md-content class="md-padding"> 
+        <form name="cursoForm">    
+            </md-input-container>
+            <md-input-container flex> 
+                <label>Colegio</label> 
+                <input ng-model="curso.colegio" required>
+            </md-input-container>  
+            <md-input-container flex>
+                <md-select ng-model="curso.grado" placeholder="Grado">
+                    <md-option value="1">1</md-option>
+                    <md-option value="2">2</md-option>
+                    <md-option value="3">3</md-option>
+                    <md-option value="4">4</md-option>
+                    <md-option value="5">5</md-option>
+                </md-select>    
+            </md-input-container> 
+            <md-input-container flex> 
+                <label>Salon</label> 
+                <input ng-model="curso.salon"> 
+            </md-input-container> 
+        </form> 
+    </md-content> 
+    <div class="md-actions" layout="row"> 
+        <span flex></span> 
+        <md-button ng-click="update()" class="md-primary"> Guardar </md-button> 
+    </div>
+</md-dialog>

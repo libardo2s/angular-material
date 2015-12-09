@@ -1,0 +1,14 @@
+<md-dialog flex-sm="100" flex-gt-sm="50" flex-gt-md="50" flex-gt-lg="50">
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+        <div class="md-toolbar-tools">
+            <h1>Reinar Admin - Eliminar Estudiante</h1>
+        </div>
+    </md-toolbar>
+    <md-content class="md-padding"> 
+        <p>Esta seguro que desea eliminar {{id.documento}}</p>
+    </md-content> 
+    <div class="md-actions" layout="row"> 
+        <span flex></span> 
+        <md-button ng-click="delete()" class="md-primary"> Eliminar </md-button> 
+    </div>
+</md-dialog>
