@@ -12,6 +12,7 @@ angular.module('StarterApp')
         primer_apellido: null,
         segundo_apellido: null,
         sexo: null,
+        usuario: null,
         fecha_nacimiento: null,
         correo: null,
         salon: []
@@ -21,6 +22,8 @@ angular.module('StarterApp')
     
     $scope.docente = $rootScope.objeto;
     
+    console.log($scope.docente);
+    
     getCursos.then(function(respuesta){
         angular.forEach(respuesta.data,function(value,key){
             if(value.colegio === colegio.codigo){
@@ -29,17 +32,17 @@ angular.module('StarterApp')
         });
 
         },function(error){
-            console.log(error);
+            $mdToast.show($mdToast.simple().content("Error en el servidor"));
     });
     
     $scope.add = function(){
-        $scope.docente.fecha_nacimiento = $filter('date')($scope.docente.fecha_nacimiento, "yyyy-MM-dd");
          DocenteService.guardar($scope.docente).then(
              function(respuesta){
                  $window.location.reload();
              },function(error){
-                 console.log(error);
-            });
+                 $mdToast.show($mdToast.simple().content("Error en el servidor"));
+            }
+         );
         
     }
     
@@ -48,8 +51,19 @@ angular.module('StarterApp')
             function(respuesta){
                 $window.location.reload();
             },function(error){
-                console.log(error);
-            });
+                $mdToast.show($mdToast.simple().content("Error en el servidor"));
+            }
+        );
+    }
+    
+    $scope.update = function(){
+        DocenteService.actualizarId($scope.docente.documento,$scope.docente).then(
+            function(respuesta){
+                $window.location.reload();
+            },function(error){
+                $mdToast.show($mdToast.simple().content("Error en el servidor"));
+            }
+        );
     }
     
 });

@@ -37,14 +37,16 @@
                 <table md-data-table md-row-select="selected" md-progress="deferred">
                     <thead md-order="query.order" md-trigger="onOrderChange">
                         <tr>
+                            <th name="Documento"></th>
                             <th name="Estudiante" flex></th>
                             <th name="Puntaje" flex></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr md-auto-select ng-repeat="puntacion in listaPuntuaciones">
-                            <td>{{puntuacion.estudiante}}</td>
-                            <td>{{profesor.puntuacion}}</td>
+                        <tr md-auto-select ng-repeat="puntuacion in listaPuntuaciones">
+                            <td>{{puntuacion.id}}</td>
+                            <td>{{puntuacion.nombre}}</td>
+                            <td>{{puntuacion.puntuacion}}</td>
                         </tr>
                     </tbody>
                 </table>            

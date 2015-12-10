@@ -17,6 +17,7 @@ angular.module('StarterApp')
             segundo_nombre: null,
             primer_apellido: null,
             segundo_apellido: null,
+            usuario:null,
             sexo:null,
             fecha_nacimiento: null
         };
@@ -29,13 +30,13 @@ angular.module('StarterApp')
             });
 
             },function(error){
-                console.log(error);
+                $mdToast.show($mdToast.simple().content("Error en el servidor"));
         }); 
     
         get.then(function(respuesta){
             $scope.listaProfesores = respuesta.data;
         },function(error){
-            console.log(error);
+            $mdToast.show($mdToast.simple().content("Error en el servidor"));
         });
         
         $scope.ShowAgregar = function(ev) {

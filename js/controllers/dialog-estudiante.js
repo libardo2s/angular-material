@@ -34,7 +34,7 @@ angular.module('StarterApp')
         });
 
         },function(error){
-            console.log(error);
+            $mdToast.show($mdToast.simple().content("Error en el servidor"));
     }); 
     
      $scope.add = function(){
@@ -42,7 +42,7 @@ angular.module('StarterApp')
              function(respuesta){
                  $window.location.reload();
              },function(error){
-                 console.log(error);
+                 $mdToast.show($mdToast.simple().content("Error en el servidor"));
             });
     }
     
@@ -51,7 +51,7 @@ angular.module('StarterApp')
             function(respuesta){
                 $window.location.reload();
             },function(error){
-                console.log(error);
+                $mdToast.show($mdToast.simple().content("Error en el servidor"));
             });
     }
     
@@ -60,7 +60,7 @@ angular.module('StarterApp')
             function(respuesta){
                 $window.location.reload();
             },function(error){
-                console.log(error);
+                $mdToast.show($mdToast.simple().content("Error en el servidor"));
             });
     }
     
