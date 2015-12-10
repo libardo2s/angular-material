@@ -1,7 +1,7 @@
 <md-dialog flex-sm="100" flex-gt-sm="50" flex-gt-md="50" flex-gt-lg="50">
     <md-toolbar layout="row" class="md-whiteframe-z1">
         <div class="md-toolbar-tools">
-            <h1>Reinar Admin - Agregar Curso</h1>
+            <h1>Reinar Admin - Actualizar Curso</h1>
         </div>
     </md-toolbar>
     <md-content class="md-padding"> 
@@ -9,25 +9,31 @@
             </md-input-container>
             <md-input-container flex> 
                 <label>Colegio</label> 
-                <input ng-model="curso.colegio" required>
+                <input name="curso" ng-model="curso.colegio" ng-readonly="true">
             </md-input-container>  
             <md-input-container flex>
-                <md-select ng-model="curso.grado" placeholder="Grado">
+                <md-select name="grado" ng-model="curso.grado" placeholder="Grado" ng-required="true">
                     <md-option value="1">1</md-option>
                     <md-option value="2">2</md-option>
                     <md-option value="3">3</md-option>
                     <md-option value="4">4</md-option>
                     <md-option value="5">5</md-option>
-                </md-select>    
+                </md-select>
+                <div ng-messages="cursoForm.grado.$error" ng-if="cursoForm.grado.$invalid && cursoForm.grado.$dirty">
+                    <div ng-message="required">Campo Requerido</div>
+                </div>
             </md-input-container> 
             <md-input-container flex> 
                 <label>Salon</label> 
-                <input ng-model="curso.salon"> 
+                <input name="salon" ng-model="curso.salon" ng-required="true">
+                <div ng-messages="cursoForm.salon.$error" ng-if="cursoForm.salon.$invalid && cursoForm.salon.$dirty">
+                    <div ng-message="required">Campo Requerido</div>
+                </div>
             </md-input-container> 
         </form> 
     </md-content> 
     <div class="md-actions" layout="row"> 
         <span flex></span> 
-        <md-button ng-click="update()" class="md-primary"> Guardar </md-button> 
+        <md-button ng-disabled="cursoForm.$invalid" ng-click="update()" class="md-primary"> Guardar </md-button> 
     </div>
 </md-dialog>

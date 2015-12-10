@@ -1,32 +1,29 @@
 angular.module('StarterApp')
 .controller('CursoController',function($scope,$window,CursoService,$mdDialog,$mdMedia,localStorageService,$rootScope){
-    var get = CursoService.getAll();
     
-    $scope.colegio = localStorageService.get("usuarioLogueado");
-    
-    $scope.curso = {};
-    $scope.listaCursos = [];
-    $scope.curso = {
-        id: null,
-        grado: null,
-        salon: null,
-        colegio: $scope.colegio
-    };
-    $scope.selected = [];
-    
-    get.then(function(respuesta){
-        angular.forEach(respuesta.data,function(value,key){
-            if(value.colegio === $scope.colegio.codigo){
-                $scope.listaCursos.push(value);
-            }
-        });
-
+    if(localStorageService.get("logueado")){
+        var get = CursoService.getAll();
+        $scope.colegio = localStorageService.get("usuarioLogueado");
+        $scope.curso = {};
+        $scope.listaCursos = [];
+        $scope.curso = {
+            id: null,
+            grado: null,
+            salon: null,
+            colegio: $scope.colegio
+        };
+        
+        get.then(function(respuesta){
+            angular.forEach(respuesta.data,function(value,key){
+                if(value.colegio === $scope.colegio.codigo){
+                    $scope.listaCursos.push(value);
+                }
+            });
         },function(error){
             console.log(error);
-    }); 
-    
-    
-    $scope.ShowAgregar = function(ev) {
+        });
+        
+        $scope.ShowAgregar = function(ev) {
         $mdDialog.show({
             controller: 'DialogCursoController',
             templateUrl: 'views/dialog-curso.html',
@@ -61,5 +58,10 @@ angular.module('StarterApp')
             fullscreen: $mdMedia('sm') && $scope.customFullscreen
 
         }) 
-    }; 
+    };
+
+        
+    }else{
+        $window.location.href = "#/";
+    } 
 });

@@ -1,11 +1,7 @@
 angular.module('StarterApp')
-.controller('DialogDocenteController',function($scope,$window,$rootScope,CursoService,localStorageService,DocenteService){    
-    $scope.profesor = $rootScope.objeto;
-    
-    var getCursos = CursoService.getAll();
-    
+.controller('DialogDocenteController',function($scope,$window,$rootScope,CursoService,localStorageService,DocenteService,$filter){        
+    var getCursos = CursoService.getAll(); 
     var colegio = localStorageService.get("usuarioLogueado");
-    
     $scope.listaCursos = [];
     
     $scope.docente = {
@@ -23,6 +19,8 @@ angular.module('StarterApp')
     
     $scope.id = $rootScope.objeto;
     
+    $scope.docente = $rootScope.objeto;
+    
     getCursos.then(function(respuesta){
         angular.forEach(respuesta.data,function(value,key){
             if(value.colegio === colegio.codigo){
@@ -35,12 +33,14 @@ angular.module('StarterApp')
     });
     
     $scope.add = function(){
+        $scope.docente.fecha_nacimiento = $filter('date')($scope.docente.fecha_nacimiento, "yyyy-MM-dd");
          DocenteService.guardar($scope.docente).then(
              function(respuesta){
                  $window.location.reload();
              },function(error){
                  console.log(error);
             });
+        
     }
     
     $scope.delete = function(){

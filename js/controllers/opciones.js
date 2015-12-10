@@ -1,7 +1,5 @@
 angular.module('StarterApp')
-.controller('OpcionesController',function($scope,$window,$rootScope){
-    /*$scope.verificarLogin = function(){
-        if (!$rootScope.logueado)
-            $window.location.href = "#/";
-    }*/
+.controller('OpcionesController',function($scope,$window,localStorageService){
+   if(!localStorageService.get("logueado"))
+       $window.location.href = "#/";
 });

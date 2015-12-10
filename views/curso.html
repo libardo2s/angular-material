@@ -1,10 +1,14 @@
 <div ng-controller="AppCtrl">
-    <md-toolbar layout="row" class="md-whiteframe-z1">
+    <md-toolbar layout="row">
         <div class="md-toolbar-tools">
-            <md-button ng-click="toggleSidenav('left')">
-                <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
+            <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
+                <md-icon aria-label="Menu" md-svg-icon="img/menu.svg" style="color:white;font:bold;"></md-icon>
             </md-button>
             <h1>Reinar Admin</h1>
+            <span flex=""></span>
+            <md-button class="button-background" aria-label="Favorite" ng-click="cerrarSesion()">
+                <md-icon md-svg-icon="img/exit.svg" style="color:white;font:bold;"></md-icon>
+            </md-button>
         </div>
     </md-toolbar>
     <div layout="row" flex>

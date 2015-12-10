@@ -1,5 +1,5 @@
 angular.module('StarterApp')
-.controller('AppCtrl',function($scope,$mdSidenav,$mdToast,$window){
+.controller('AppCtrl',function($scope,$mdSidenav,$mdToast,$window,localStorageService){
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav('left').toggle();
     };
@@ -14,4 +14,11 @@ angular.module('StarterApp')
         if(ventana === 'puntaje')
             $window.location.href = "#/puntuacion";
     };
+    
+    $scope.cerrarSesion = function(){
+        localStorageService.set("usuarioLogueado", null);
+        localStorageService.set("logueado", false);
+        $window.location.href = "#/";
+    }
+    
 });
